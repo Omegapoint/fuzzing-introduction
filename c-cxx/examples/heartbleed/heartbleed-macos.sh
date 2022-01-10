@@ -3,10 +3,10 @@ tar xf openssl-1.0.1f.tar.gz
 
 # Build OpenSSL with ASan and fuzzer instrumentation:
 cd openssl-1.0.1f/
-CC="/usr/local/opt/llvm/bin/clang -g -fsanitize=address,fuzzer-no-link"
+CC=/usr/local/opt/llvm/bin/clang
 CXX=/usr/local/opt/llvm/bin/clang++
 ./Configure darwin64-x86_64-cc
-make
+make CC="$CC -g -fsanitize=address,fuzzer-no-link"
 cd ..
 
 # Build OpenSSL fuzz target for ClusterFuzz ($CXX points to clang++ binary):
