@@ -5,7 +5,7 @@ tar xf openssl-1.0.1f.tar.gz
 cd openssl-1.0.1f/
 CC="/usr/local/opt/llvm/bin/clang -g -fsanitize=address,fuzzer-no-link"
 CXX=/usr/local/opt/llvm/bin/clang++
-./config
+./Configure darwin64-x86_64-cc
 make
 cd ..
 
