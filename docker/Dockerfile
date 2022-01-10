@@ -31,7 +31,12 @@ RUN CC=clang CXX=clang++ LLVM_CONFIG=$(find /usr/ -name llvm-config) make
 RUN make install
 
 RUN python3 -m pip install virtualenv
-
+RUN apt-get install curl -y
+RUN curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
+RUN mv bazel.gpg /etc/apt/trusted.gpg.d/
+RUN echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
+RUN apt update -y && apt install bazel lld maven -y
+RUN echo "export LD_LIBRARY_PATH=/usr/lib/jvm/java-11-openjdk-amd64/lib/server" >> ~/.bashrc
 WORKDIR /root
 
 ENTRYPOINT ["bash"]

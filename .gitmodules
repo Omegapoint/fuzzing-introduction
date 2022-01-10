@@ -1,3 +1,6 @@
 [submodule "c-cxx/cddl-gen/cddl-gen"]
 	path = c-cxx/cddl-gen/cddl-gen
 	url = https://github.com/NordicSemiconductor/cddl-gen
+[submodule "java/jazzer"]
+	path = java/jazzer
+	url = https://github.com/CodeIntelligenceTesting/jazzer
