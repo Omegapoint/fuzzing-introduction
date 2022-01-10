@@ -57,9 +57,9 @@ $CXX -g handshake-fuzzer.cc -fsanitize=address,fuzzer openssl-1.0.1f/libssl.a \
 ```
 
 ## Not working?
-If you are getting a linker error, test compiling the handshake fuzzer like this:
+If you are getting a linker error, test compiling the handshake fuzzer like this by adding `-lstdc++fs`:
 ```sh
 $CXX -g handshake-fuzzer.cc -fsanitize=address,fuzzer openssl-1.0.1f/libssl.a \
   openssl-1.0.1f/libcrypto.a -std=c++17 -Iopenssl-1.0.1f/include/  \
-  -ldl -lstdc++ -o handshake-fuzzer
+  -ldl -lstdc++ -lstdc++fs -o handshake-fuzzer
 ```

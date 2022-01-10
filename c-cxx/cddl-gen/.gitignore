@@ -1,0 +1,5 @@
+*.o
+*.a
+output
+pet_*
+crash-*

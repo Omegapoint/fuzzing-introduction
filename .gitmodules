@@ -1,0 +1,3 @@
+[submodule "c-cxx/cddl-gen/cddl-gen"]
+	path = c-cxx/cddl-gen/cddl-gen
+	url = https://github.com/NordicSemiconductor/cddl-gen
