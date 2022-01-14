@@ -2,7 +2,10 @@
 
 
 ## Using docker provided by Jazzer
+
+```sh
 docker run -v $(pwd):/fuzzing cifuzz/jazzer --cp=/fuzzing/fuzzing-1.0-SNAPSHOT-jar-with-dependencies.jar --target_class=se.omegapoint.fuzzing.JacksonCborFuzzing
+```
 
 ## Downloading pre-built jazzer
 Simplest seems to be to download a release from:
