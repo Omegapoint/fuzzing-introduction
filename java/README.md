@@ -50,9 +50,20 @@ $ tar -xvf jazzer-macos-0.10.0.tar.gz
 $ cd fuzzing
 $ mvn clean compile assembly:single
 $ cd ..
-# Also possible to export JAVA_HOME prior to starting jazzer
-$ JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home ./jazzer --cp=fuzzing/target/fuzzing-1.0-SNAPSHOT-jar-with-dependencies.jar --target_class=se.omegapoint.fuzzing.JacksonCborFuzzing
+$ JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home
+
+# Jackson CBOR fuzzing
+$ ./jazzer --cp=fuzzing/target/fuzzing-1.0-SNAPSHOT-jar-with-dependencies.jar --target_class=se.omegapoint.fuzzing.JacksonCborFuzzing
+
+# JJWT
+$ ./jazzer --cp=fuzzing/target/fuzzing-1.0-SNAPSHOT-jar-with-dependencies.jar --target_class=se.omegapoint.fuzzing.JacksonCborFuzzing
 ```
 
 ## Using bazel
 This seems a little bit messy. I just installed bazel using brew. Then i used the JAR files from the downloaded release and put them into a Java project. Then i used bazel like:
+```sh
+$ proj_dir=$(pwd)
+$ target_class="se.omegapoint.fuzzing.JacksonCborFuzzing"
+$ cd jazzer
+bazel run //:jazzer -- --cp=$proj_dir/fuzzing/target/fuzzing-1.0-SNAPSHOT-jar-with-dependencies.jar --target_class=$target_class $proj_dir/output/$target_class
+```
